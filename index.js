@@ -11,7 +11,8 @@ tweetBtn.addEventListener('click', () => {
 function getFeedHtml() {
   let feedHtml = ''
 
-  for (let tweet of tweetsData) {
+  // for (let tweet of tweetsData) {
+  tweetsData.forEach(function(tweet) {
     console.log(`handle: ${tweet.handle}`);
 
     feedHtml +=
@@ -30,7 +31,8 @@ function getFeedHtml() {
       </div>
     </div>`
     feed.innerHTML = feedHtml
-  }
+  })
+
 
   /*
 Challenge:

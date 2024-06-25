@@ -12,7 +12,7 @@ export const tweetsData = [
 		uuid: '4b161eee-c0f5-4545-9c4b-8562944223ee',
 	},
 	{
-		handle: `@Elon ✅`,
+		handle: `@Musk_MElon ✅`,
 		profilePic: `images/musk.png`,
 		likes: 6500,
 		retweets: 234,

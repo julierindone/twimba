@@ -11,38 +11,47 @@ document.addEventListener('click', function (e) {
   if (e.target.dataset.like) {
     handleLikeClick(e.target.dataset.like)
   }
-  if (e.target.dataset.reply) {
-    console.log(`Reply for ${e.target.dataset.reply}`)
+  else if (e.target.dataset.retweet) {
+    console.log(`Retweet count for ${e.target.dataset.retweet}`)
+    handleRetweetClick(e.target.dataset.retweet)
   }
 })
 
-
 function handleLikeClick(tweetId) {
-  // Iterate over tweetsData and use the uuid saved in tweetId to identify the liked tweet's object. 
-  // Save that object to a new const called 'targetTweetObj'. Remove it from the array by specifying [0].
-  // Increment like count by 1.
   const targetTweetObj = tweetsData.filter(function (tweet) {
     return tweet.uuid === tweetId
   })[0]
-  // if targetTweetObj was true, decrement by 1 and change prop to false.
+
   if (targetTweetObj.isLiked) {
     targetTweetObj.likes--
-    targetTweetObj.isLiked = false
   }
-  // if targetTweetObj was false, increment by 1.
   else {
-    targetTweetObj.isLiked = true
     targetTweetObj.likes++
   }
+  targetTweetObj.isLiked = !targetTweetObj.isLiked
   render()
 }
 
-  function getFeedHtml() {
-    let feedHtml = ''
+function handleRetweetClick(tweetId) {
+  const targetTweetObj = tweetsData.filter(function(tweet) {
+    return tweet.uuid === tweetId;
+  })[0]
+  if (!targetTweetObj.isRetweeted) {
+    targetTweetObj.retweets++
+  }
+  else {
+    targetTweetObj.retweets--
+  }
+  targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted
+  render()
+}
 
-    tweetsData.forEach(function (tweet) {
-      feedHtml +=
-        `< div class="tweet" >
+function getFeedHtml() {
+  let feedHtml = ''
+
+  tweetsData.forEach(function (tweet) {
+    feedHtml +=
+      `< div class="tweet" >
   <div class="tweet-inner">
     <img src="${tweet.profilePic}" class="profile-pic">
       <div>
@@ -71,12 +80,12 @@ function handleLikeClick(tweetId) {
       </div>
   </div>
     </div > `
-    })
-    return feedHtml
-  }
+  })
+  return feedHtml
+}
 
-  function render() {
-    document.getElementById("feed").innerHTML = getFeedHtml()
-  }
+function render() {
+  document.getElementById("feed").innerHTML = getFeedHtml()
+}
 
-  render()
+render()

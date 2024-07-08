@@ -33,7 +33,7 @@ function handleLikeClick(tweetId) {
 }
 
 function handleRetweetClick(tweetId) {
-  const targetTweetObj = tweetsData.filter(function(tweet) {
+  const targetTweetObj = tweetsData.filter(function (tweet) {
     return tweet.uuid === tweetId;
   })[0]
   if (!targetTweetObj.isRetweeted) {
@@ -50,8 +50,9 @@ function getFeedHtml() {
   let feedHtml = ''
 
   tweetsData.forEach(function (tweet) {
-    feedHtml +=
-      `< div class="tweet" >
+    let likeIconClass = ''
+    let retweetIconClass = ''
+    let replyIconClass = 'hidden'
   <div class="tweet-inner">
     <img src="${tweet.profilePic}" class="profile-pic">
       <div>
@@ -65,15 +66,15 @@ function getFeedHtml() {
             ${tweet.replies.length}
           </span>
           <span class="tweet-detail">
-            <i class="fa-solid fa-heart"
-              data-like="${tweet.uuid}"
-            ></i>
+                <i class="fa-solid fa-heart ${likeIconClass}"
+                  data-like="${tweet.uuid}">
+                </i>
             ${tweet.likes}
           </span>
           <span class="tweet-detail">
-            <i class="fa-solid fa-retweet"
-              data-retweet="${tweet.uuid}"
-            ></i>
+                <i class="fa-solid fa-retweet ${retweetIconClass}"
+                  data-retweet="${tweet.uuid}">
+                </i>
             ${tweet.retweets}
           </span>
         </div>

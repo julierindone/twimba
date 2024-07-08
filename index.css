@@ -17,7 +17,10 @@ i{
     cursor: pointer;
 }
 
-.liked{
+.fa-solid {
+    color: #666;
+}
+
     color: red;
 }
 

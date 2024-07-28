@@ -7,8 +7,8 @@ html, body {
 /* typography and icons */
 h1 {
     color: #0F8CDF;
-    margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 1.8rem;
+    margin: -8px 6px;
 }
 
 i {
@@ -35,7 +35,14 @@ main, header {
 }
 
 header {
-    padding-bottom: 25px;
+    display: flex;
+    align-items: top;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+main {
+    padding-top: 10px;
 }
 
 .tweet-input-area {
@@ -119,6 +126,10 @@ button {
     border: 1px solid lightgray;
     border-radius: 50%;
     width: 48px;
+}
+
+.meower-pic {
+    width: 40px;
 }
 
 /* utility */

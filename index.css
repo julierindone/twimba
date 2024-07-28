@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 /* typography and icons */
@@ -12,7 +13,7 @@ h1 {
 }
 
 i {
-    font-size: 15px;
+    font-size: .92rem;
     cursor: pointer;
 }
 
@@ -30,7 +31,8 @@ i {
 
 /* layout */
 main, header {
-    width: 290px;
+    min-width: 290px;
+    max-width: 380px;
     margin: 0 auto;
 }
 
@@ -55,12 +57,12 @@ main {
 textarea {
     border: none;
     resize: none;
-    padding: 10px;
-    margin: 0 0 20px 0;
+    padding: 8px;
+    margin: 0 0 16px 0;
     height: 60px;
     width: 100%;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1rem;
+    line-height: 24px;
 }
 
 button {
@@ -68,7 +70,7 @@ button {
     border: none;
     color: white;
     padding: 10px 19px;
-    border-radius: 20px;
+    border-radius: 17px;
     width: 100%;
     cursor: pointer;
     font-size: 20px;
@@ -109,15 +111,15 @@ button {
 }
 
 .handle {
-    font-size: 12px;
+    font-size: .8rem;
     font-weight: 500;
     color: #555;
     margin-top: 0;
 }
 
 .tweet-text {
-    width: 207px;
-    font-size: 14px;
+    width: 95%;
+    font-size: .9rem;
     line-height: 20px;
 }
 

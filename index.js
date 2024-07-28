@@ -14,6 +14,9 @@ document.addEventListener('click', function (e) {
   else if (e.target.id === 'tweet-btn') {
     handleTweetBtnClick()
   }
+  else if (e.target.id === 'reply-input-btn') {
+    handleReplyInputBtnClick()
+  }
 })
 
 function handleTweetBtnClick() {
@@ -72,6 +75,20 @@ function handleRetweetClick(tweetId) {
   render()
 }
 
+// Doesn't save or display yet
+function handleReplyInputBtnClick() {
+  const replyInput = document.getElementById("reply-input") 
+
+  // Not sure if this will be stored in a separate data file, or in the same tweetsData.js and be given a reply boolean.
+    // handle: '@scrimba_jules',
+		// profilePic: 'images/scrimbalogo.png',
+		// tweetText: ${replyInput}
+    // `
+    console.log(replyInput.value);
+    
+    render()
+}
+
 function getFeedHtml() {
   let feedHtml = ''
 
@@ -79,7 +96,21 @@ function getFeedHtml() {
     let likeIconClass = ''
     let retweetIconClass = ''
     let replyIconClass = 'hidden'
-    let repliesHtml = ''
+    let repliesHtml = `
+      <div class="tweet-reply">
+        <div class="tweet-input-area">
+          <img
+            src="images/scrimbalogo.png"
+            class="profile-pic" 
+            alt="profile">
+          <textarea
+            name="tweet-input"
+            id="reply-input"
+            placeholder="BE NICE."></textarea>
+        </div>
+        <button id="reply-input-btn">reply</button>
+      </div>
+      `
     let tweetReplies = tweet.replies
 
     if (tweet.isLiked) {

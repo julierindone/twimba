@@ -110,6 +110,14 @@ button {
     width: 80%;
 }
 
+.tweet-reply button {
+    font-size: 16px;
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 13px;
+    margin-top: -5px;
+}
+
 .handle {
     font-size: .8rem;
     font-weight: 500;
@@ -118,7 +126,6 @@ button {
 }
 
 .tweet-text {
-    width: 95%;
     font-size: .9rem;
     line-height: 20px;
 }
